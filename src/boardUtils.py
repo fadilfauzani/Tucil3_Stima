@@ -62,12 +62,28 @@ def printBoard(list):
         for j in range(4):
             print(str(list[i*4 + j]).rjust(3," "), end=' ')
         print()
-def append(q, board, prev):
+def append(q, board, prev, step):
     c = cost(board)
-    q.append((c, board, prev))
+    step.append(prev)
+    q.append((c, board, prev, step))
     q.sort()
 def isGoal(board):
     for i in range(16):
         if board[i]!=i+1:
             return False
     return True
+def printStep(board, step):
+    for i in range(len(step)):
+        if (step[i] == 0):
+            goUp(board)
+            print("UP")
+        if (step[i] == 1):
+            goDown(board)
+            print("DOWN")
+        if (step[i] == 2):
+            goLeft(board)
+            print("LEFT")
+        if (step[i] == 3):
+            goRight(board)
+            print("RIGHT")
+        printBoard(board)
