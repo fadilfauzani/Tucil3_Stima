@@ -60,6 +60,9 @@ if (reachable(inp) % 2 == 0):
             printStep(inp, steps)
         print("Menulusuri total " + str(len(ditelusuri)) + " kemungkinan." )
         print("Panjang Jalur solusi adalah " + str(len(steps)) + " Simpul")
-        print("waktu algoritma ", end='')
-        print(end-start, end=' detik\n')
+else:
+    end = time.time()
+    print("Puzzle tidak dapat di selesaikan karena Jumlah Kurang(i) + X nya ganjil (" + str(reachable(inp))+").")
+print("waktu algoritma ", end='')
+print(end-start, end=' detik\n')
 
